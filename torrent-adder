@@ -8,5 +8,6 @@ while read path action file; do
 
    if [[ $file == *".torrent" ]]; then
       transmission-remote -w $path -a $path/$file
+      rm $path/$file
    fi
 done
