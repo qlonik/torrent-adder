@@ -1,0 +1,11 @@
+[Unit]
+Description=Torrent adder script
+After=local-fs.target
+Requires=transmission.service
+
+[Service]
+User=transmission
+ExecStart=/usr/local/bin/torrent-adder
+
+[Install]
+WantedBy=multi-user.target
