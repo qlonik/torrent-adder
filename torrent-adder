@@ -8,7 +8,7 @@ while read path action file; do
    echo "The file '$file' appeared in directory '$path' via '$action'"
 
    if [[ $file == *".torrent" ]]; then
-      transmission-remote -w $path -a $path/$file
+      transmission-remote -s -w $path -a $path/$file
       rm $path/$file
    fi
 done
