@@ -7,8 +7,8 @@ inotifywait -rm --csv -e create -e moved_to ${WATCH_PATH} |
 while read path action file; do
    echo "The file '$file' appeared in directory '$path' via '$action'"
 
-   if [[ $file == *".torrent" ]]; then
-      transmission-remote -s -w $path -a $path/$file
-      rm $path/$file
+   if [[ "$file" == *".torrent" ]]; then
+      transmission-remote -s -w "$path" -a "$path/$file"
+      rm "$path/$file"
    fi
 done
